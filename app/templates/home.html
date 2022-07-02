@@ -1,0 +1,30 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}"
+      {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Select2-BS5-DAL</title>
+  <link rel="shortcut icon" type="image/png" href="{% static 'media/favicon.ico' %}"/>
+  {% if LANGUAGE_BIDI %} {# RTL lang #}
+    <link rel="stylesheet" crossorigin="anonymous" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" crossorigin="anonymous" href="{% static 'css/select2-bootstrap-5-theme.rtl.min.css' %}">
+  {% else %}
+    <link rel="stylesheet" crossorigin="anonymous" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" crossorigin="anonymous" href="{% static 'css/select2-bootstrap-5-theme.min.css' %}">
+  {% endif %}
+  <script crossorigin="anonymous" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script crossorigin="anonymous" src="{% static 'js/jquery.min.js' %}"></script>
+</head>
+
+<body>
+<form class="p-3" action="/dummy" method="get">
+  {{ form.as_p }}
+  {{ form.media }}
+</form>
+</body>
+</html>
